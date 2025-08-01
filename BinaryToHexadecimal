@@ -7,7 +7,7 @@ int binaryToDecimal(char binary[]){
         if(binary[i]=='1'){
             decimal+=1<<(len-1-i);
         }else if(binary[i]!='0'){
-            printf("Invalid binary: %c\n",binary[i]);
+            printf("Invalid binary: '%c'\n",binary[i]);
             return -1;
         }
     }
@@ -27,15 +27,14 @@ void decimalToHexadecimal(int decimal){
         decimal/=16;
     }
     printf("Hexadecimal: ");
-    for(int j=i-1;j>=0;j++){
+    for(int j=i-1;j>=0;j--)
         printf("%c",hex[j]);
-    }
     printf("\n");
 }
 int main(){
     char binary[65];
     printf("Enter a Binary Num: ");
-    scanf("%64s", &binary);
+    scanf("%64s", binary);
     int decimal=binaryToDecimal(binary);
     if(decimal!=-1){
         decimalToHexadecimal(decimal);
